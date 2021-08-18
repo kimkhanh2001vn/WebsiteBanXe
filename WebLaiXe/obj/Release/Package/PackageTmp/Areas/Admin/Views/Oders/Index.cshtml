@@ -1,0 +1,87 @@
+﻿@model IEnumerable<WebLaiXe.Oder>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<script src="~/assets/client/js/controller/DeleteConfirm.js"></script>
+<section class="content" data-category="@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="search-table" class="table table-bordered table-striped">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CusName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CusAddress)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CusEmail)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CusPhoneNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CreatedDate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CustomerID)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CusName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CusAddress)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CusEmail)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CusPhoneNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CustomerID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                                <td>
+                                    <a href="/Admin/cars/Edit/@item.ID" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-edit"></i></a> &nbsp;
+                                    <a href="/Admin/cars/Details/@item.ID" data-toggle="tooltip" data-placement="top" title="Chi tiết"><i class="fa fa-list-alt"></i></a> &nbsp;
+                                    <span class="Delete" data-id="@item.ID" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                        <i class="fa fa-times-circle"></i>
+                                    </span> &nbsp;
+                                </td>
+                            </tr>
+                        }
+
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    <!-- The Modal -->
+    <!--  -------------------------  --->
+</section>

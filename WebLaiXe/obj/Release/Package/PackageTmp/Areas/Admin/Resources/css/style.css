@@ -1,0 +1,236 @@
+﻿.box-body {
+    overflow: auto;
+}
+.modal-content img{
+    max-width:100%;
+}
+#preview_beauty{
+    max-width:810px;
+    min-width:810px;
+    margin:auto;
+}
+#first_post_7 {
+    border: rgba(0, 0, 0, 0.12941176470588237) 1px solid;
+}
+
+    #first_post_7 h2 a:hover {
+        color: inherit !important;
+    }
+
+    #first_post_7 span {
+        letter-spacing: .5px;
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        line-height: 13px;
+    }
+    
+.custom-padding-7 {
+    padding-bottom: 15px
+}
+
+
+.center-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.no-padding-horizontal {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.custom-min-height-7 {
+    min-height: 450px;
+}
+
+@media (max-width:576px) {
+    .custom-min-height-7 {
+        min-height: unset;
+    }
+    .custom-padding-7 {
+        padding-top: 15px;
+        padding-bottom: 0px;
+    }
+}
+.bs-row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.bs-col-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+
+.bs-col-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+.bs-col-5,.bs-col-7{
+position: relative;
+width: 100%;
+min-height: 1px;
+padding-right: 15px;
+padding-left: 15px;
+}
+
+/* FA eye content Post */
+
+
+.modal-content-post {
+    color: #000;
+    display: block;
+    font-size: .9rem;
+    line-height: 160%
+}
+
+    .modal-content-post p {
+        margin-bottom:1em;
+        margin-top:1em;
+    }
+
+    .modal-content-post ul {
+        list-style: disc outside;
+        margin: 10px 0
+    }
+
+    .modal-content-post ol {
+        list-style: decimal outside;
+        margin: 10px 0
+    }
+
+        .modal-content-post ul li, .modal-content-post ol li {
+            margin-left: 50px;
+            padding: 0
+        }
+
+    .modal-content-post h1, .modal-content-post h2, .modal-content-post h3, .modal-content-post h4, .modal-content-post h5, .modal-content-post h6 {
+        font-weight: 700;
+        line-height: 120%;
+        margin: 10px 0;
+        overflow: hidden;
+        width: 100%
+    }
+
+    .modal-content-post h1 {
+        font-size: 1.6rem
+    }
+
+    .modal-content-post h2 {
+        font-size: 1.4rem
+    }
+
+    .modal-content-post h3 {
+        font-size: 1.2rem
+    }
+
+    .modal-content-post h4 {
+        font-size: 1rem
+    }
+
+    .modal-content-post h5 {
+        font-size: .8rem
+    }
+
+    .modal-content-post h6 {
+        font-size: .6rem
+    }
+
+    .modal-content-post blockquote p {
+        color: #555;
+        font-size: 1.7rem;
+        font-weight: 700;
+        line-height: 130%;
+        margin: 0px 0px 30px 5%;
+        width: 100%
+    }
+
+        .modal-content-post blockquote p cite {
+            color: #555;
+            display: inline-block;
+            font-size: .7rem;
+            font-weight: 400
+        }
+
+.content-bot-wrap {
+    margin-bottom: 30px;
+    width: 100%
+}
+
+.theiaPostSlider_nav {
+    clear: both;
+    font-family: 'Open Sans',sans-serif
+}
+
+.wp-caption, .gallery-caption {
+    margin-bottom: 20px;
+    max-width: 100%;
+    text-align: center
+}
+
+.modal-content-post p.wp-caption-text {
+    border-bottom: 1px solid #ddd;
+    font-family: 'Open Sans',sans-serif;
+    font-size: .875em;
+    font-style: italic;
+    padding-bottom: 5px
+}
+
+.posts-nav-link {
+    display: none
+}
+
+.modal-content-post dt {
+    font-weight: 700
+}
+
+.modal-content-post dd {
+    margin-left: 20px
+}
+
+.modal-content-post abbr, .modal-content-post acronym {
+    font-weight: 700;
+    text-transform: uppercase
+}
+
+.modal-content-post code {
+    font-size: 1.1rem
+}
+
+.modal-content-post sub {
+    font-size: smaller;
+    vertical-align: sub
+}
+
+.modal-content-post sup {
+    font-size: smaller;
+    vertical-align: super
+}
+
+.modal-content-post table {
+    font-family: 'Open Sans',sans-serif;
+    font-size: .9rem
+}
+
+.content-post table {
+    width: 100%
+}
+
+.modal-content-post td, .modal-content-post th {
+    padding: 0 1.5%
+}
+
+.modal-content-post tr.odd {
+    background: #eee
+}
+
+.modal-content-post img {
+    max-width:100%;
+}

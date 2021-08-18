@@ -1,0 +1,243 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var specification = (List<Specification>)ViewBag.Specification;
+    var speciDetail = ViewBag.SpecificationDetail;
+    var car = ViewBag.car;
+}
+
+<html>
+<head>
+    <link href="~/assets/css/Comment.css" rel="stylesheet" />
+</head>
+<body data-spy="scroll">
+    <section id="breadcrumb" class="breadcrumb-section relative-position backgroud-style">
+        <div class="blakish-overlay"></div>
+        <div class="container">
+            <div class="page-breadcrumb-content text-center">
+                <div class="page-breadcrumb-title">
+                    <h2 class="breadcrumb-head black bold">Quản Lý <span>Đặt Hàng </span></h2>
+                </div>
+                <div class="page-breadcrumb-item ul-li">
+                    <ul class="breadcrumb text-uppercase black">
+                        <li class="breadcrumb-item"><a href="/home/index">Trang Chủ</a></li>
+                        <li class="breadcrumb-item active">Giỏ Hàng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="search-course" class="search-course-section search-course-third">
+        <div class="container">
+            <div class="search-counter-up">
+                <div class="version-four">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="counter-icon-number">
+                                <div class="counter-icon">
+                                    <i class="text-gradiant flaticon-graduation-hat"></i>
+                                </div>
+                                <div class="counter-number">
+                                    <span class="counter-count bold-font">5 </span><span>M+</span>
+                                    <p>Students Enrolled</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /counter -->
+
+                        <div class="col-md-3">
+                            <div class="counter-icon-number">
+                                <div class="counter-icon">
+                                    <i class="text-gradiant flaticon-book"></i>
+                                </div>
+                                <div class="counter-number">
+                                    <span class="counter-count bold-font">122</span><span>.500+</span>
+                                    <p>Online Available Courses</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /counter -->
+
+                        <div class="col-md-3">
+                            <div class="counter-icon-number">
+                                <div class="counter-icon">
+                                    <i class="text-gradiant flaticon-favorites-button"></i>
+                                </div>
+                                <div class="counter-number">
+                                    <span class="counter-count bold-font">15</span><span>.000+</span>
+                                    <p>Premium Quality Products</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /counter -->
+
+                        <div class="col-md-3">
+                            <div class="counter-icon-number">
+                                <div class="counter-icon">
+                                    <i class="text-gradiant flaticon-group"></i>
+                                </div>
+                                <div class="counter-number">
+                                    <span class="counter-count bold-font">7</span><span>.500+</span>
+                                    <p>Teachers Registered</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /counter -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="row margin container">
+            @{foreach (var ch in car)
+                {
+                    dynamic d = ch;
+                    var ID = d.GetType().GetProperty("ID").GetValue(d, null);
+                    var Name = d.GetType().GetProperty("Name").GetValue(d, null);
+                    var content = d.GetType().GetProperty("Content").GetValue(d, null);
+                    var namecate = d.GetType().GetProperty("NameCate").GetValue(d, null);
+                    var Price = d.GetType().GetProperty("Price").GetValue(d, null);
+                    var images = d.GetType().GetProperty("Images").GetValue(d, null);
+                    <div class="col-lg-5 margin">
+                        <img src="@images" />
+                    </div>
+                    <div class="col-lg-7">
+                        <div>
+                            <p style="text-align:center;font-size:20px;font-weight:bold">@Name</p>
+                            <p><span class="bold-font">Mô tả : </span>@content.</p>
+                        </div>
+                        <hr />
+                        <div>
+                            <p><span class="bold-font">Loại Xe : </span> Xe 4 Chỗ </p>
+                            <p><span class="bold-font">Hãng Xe : </span>@namecate  </p>
+                        </div>
+                        <hr />
+                        <div>
+                            <p><span class="bold-font">Giá : </span> @Html.FormatValue(Price, "{0:#,##0}") VND</p>
+                        </div>
+                        <div class="form-group">
+                            <label class="bold-font">Số Lượng</label>
+                            <input placeholder="1" class="form-control quantity">
+                        </div>
+                        <p>
+                            <a href="@Url.Action("AddItem", "Cart", new { cartId = ID, quantity = 1, }) " class="btn btn-outline-dark">Add to cart</a>
+                        </p>
+                    </div>
+                }
+            }
+        </section>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                        <a class="btn btn-link btn-block text-left" type="text/asa" aria-expanded="true" aria-controls="collapseDongCo">
+                            Thông Số Và Kĩ Thuật
+                        </a>
+                    </h2>
+                </div>
+
+                <div id="collapseDongCo" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    @{int count = 0;
+                        foreach (var k in specification)
+                        {
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div>
+                                        <p>
+                                            <button class="btn btn-outline-dark" id="tab-btn" data-toggle="collapse" href="#@count" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                                @k.SpecificationName
+                                            </button>
+                                        </p>
+                                        <div class="collapse" id="@count">
+                                            @foreach (var ch in speciDetail)
+                                            {
+                                                dynamic d = ch;
+                                                var idspec = d.GetType().GetProperty("IdSpecification").GetValue(d, null);
+                                                if (idspec == k.ID)
+                                                {
+                                                    var name = d.GetType().GetProperty("Name").GetValue(d, null);
+
+                                                    <div class="list-group" id="list-tab" role="tablist">
+                                                        <a class="list-group-item list-group-item-action" id="list-@count-list" data-toggle="list" href="#list-@count" role="tab" aria-controls="@count">@name</a>
+                                                    </div>
+                                                    count++;
+                                                }
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    @foreach (var ch in speciDetail)
+                                    {
+                                        dynamic d = ch;
+                                        var idspec = d.GetType().GetProperty("IdSpecification").GetValue(d, null);
+                                        if (idspec == k.ID)
+                                        {
+                                            var content = d.GetType().GetProperty("Content").GetValue(d, null);
+                                            <div class="tab-content" id="nav-tabContent">
+                                                <div class="hidden tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+                                                    <p id="sel"></p>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row bootstrap snippets bootdeys">
+            <div class="col-md-10 col-sm-12">
+                <div class="comment-wrapper">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            Bình Luận Về Sản Phẩm
+                        </div>
+                        <hr />
+                            <div class="panel-body">
+                                <form action="/home/comment" method="post">
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="content" @*id="contentComment"*@ placeholder="Viết Bình Luận..." rows="3"></textarea>
+                                        <br>
+                                        <button type="button" class="btn btn-info pull-right">Bình Luận</button>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </form>
+                                
+                                <hr>
+                                <ul class="media-list">
+                                        <li class="media">
+                                            <a href="#" class="pull-left">
+                                                <img src="https://bootdey.com/img/Content/user_1.jpg" alt="" class="img-circle">
+                                            </a>
+                                            <div class="media-body">
+                                                <span class="text-muted pull-right">
+                                                    <small class="text-muted">30 min ago</small>
+                                                </span>
+                                                <strong class="text-success">khanh kim</strong>
+                                                <p>
+                                                  san pham great
+                                                </p>
+                                            </div>
+                                        </li>
+                                </ul>
+                            </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

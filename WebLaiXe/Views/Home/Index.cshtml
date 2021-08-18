@@ -1,0 +1,729 @@
+﻿@{
+    ViewBag.Title = "Dạy Lái Xe Cấp Tốc";
+    var car = (List<Car>)ViewBag.car;
+    var carcate = (List<CarCategory>)ViewBag.carcate;
+}
+
+<html lang="en">
+
+<!-- Mirrored from jthemes.net/themes/html/genius-course/index-4.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Mar 2021 14:57:57 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/colors/switch.css">
+   
+</head>
+
+<body>
+
+    <section id="slide" class="slider-section">
+        <div id="slider-item" class="slider-item-details">
+            <div class="slider-area slider-bg-1 relative-position">
+                <div class="slider-text">
+                    <div class="section-title mb20 headline text-center">
+                        @*<div class="layer-1-1">
+                                <span class="subtitle text-uppercase">EDUCATION & TRAINING </span>
+                            </div>*@
+                        <div class="layer-1-3">
+                            <h2><span>Tinh Thần</span> Nguyên Bản <br>Năng Lượng <span>Đột Phá</span></h2>
+                        </div>
+                    </div>
+                    <div class="layer-1-4">
+                        <div id="course-btn">
+                            <div class="genius-btn text-center text-uppercase ul-li-block bold-font">
+                                <a href="#">Lựa Chọn Sản Phẩm Ngay <i class="fas fa-caret-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="slider-area slider-bg-2 relative-position">
+                <div class="slider-text">
+                    <div class="section-title mb20 headline text-center">
+                        <div class="layer-1-1">
+                            <span class="subtitle text-uppercase">Cổ Mấy Kinh Điển</span>
+                        </div>
+                        <div class="layer-1-2">
+                            <h2 class="secoud-title"> Hãy đăng Kí <span>Lái Thử.</span></h2>
+                        </div>
+                    </div>
+                    <div class="layer-1-3">
+                        <div class="search-course mb30 relative-position">
+                            <form action="#" method="post">
+                                <input class="course" name="course" type="text" placeholder="Hãy Để Lại Email ...">
+                                <div class="nws-button text-center  gradient-bg text-capitalize">
+                                    <button type="submit" value="Submit">Đăng Ký</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="layer-1-4">
+                            <div class="slider-course-category ul-li text-center">
+                                <span class="float-left">Các Hãng Xe:</span>
+                                <ul>
+                                    <li>Porsche</li>
+                                    <li>Mercedes</li>
+                                    <li>lexus </li>
+                                    <li>Toyota</li>
+                                    <li>Honda</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-area slider-bg-3 relative-position">
+                <div class="slider-text">
+                    <div class="layer-1-2">
+                        <div class="coming-countdown ul-li">
+                            <ul>
+                                <li class="days">
+                                    <span class="number"></span>
+                                    <span class="Days"></span>
+                                </li>
+
+                                <li class="hours">
+                                    <span class="number"></span>
+                                    <span class="Hours"></span>
+                                </li>
+
+                                <li class="minutes">
+                                    <span class="number"></span>
+                                    <span class="Minutes"></span>
+                                </li>
+
+                                <li class="seconds">
+                                    <span class="number"></span>
+                                    <span class="Seconds"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="section-title mb20 headline text-center">
+                        <div class="layer-1-3">
+                            <h2 class="third-slide"> Làm Chủ <br> <span>Trên Mọi Cung Đường.</span></h2>
+                        </div>
+                    </div>
+                    <div class="layer-1-4">
+                        <div class="about-btn text-center">
+                            <div class="genius-btn text-center text-uppercase ul-li-block bold-font">
+                                <a href="#">Về Chúng Tôi <i class="fas fa-caret-right"></i></a>
+                            </div>
+                            <div class="genius-btn text-center text-uppercase ul-li-block bold-font">
+                                <a href="#">Liên Hệ Ngay <i class="fas fa-caret-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-area slider-bg-4 relative-position">
+                <div class="slider-text">
+                    <div class="section-title mb20 headline text-center">
+                        <span class="subtitle text-uppercase">Phát TRiển & Đột Phá Trong Thiết Kế</span>
+                        <h2><span>Trải Nghiệm</span> Tính Năng <br> Mới Của <span> Nhà Phát TRiển</span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Start of Search Courses
+        ============================================= -->
+    <section id="search-course" class="search-course-section search-course-third">
+        <div class="container">
+            <div class="search-counter-up">
+                <div class="version-four">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="counter-icon-number">
+                                <div class="counter-icon">
+                                    <i class="text-gradiant flaticon-graduation-hat"></i>
+                                </div>
+                                <div class="counter-number">
+                                    <span class="counter-count bold-font">5 </span><span>M+</span>
+                                    <p>Thông Số Xe</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /counter -->
+
+                        <div class="col-md-3">
+                            <div class="counter-icon-number">
+                                <div class="counter-icon">
+                                    <i class="text-gradiant flaticon-book"></i>
+                                </div>
+                                <div class="counter-number">
+                                    <span class="counter-count bold-font">122</span><span>.500+</span>
+                                    <p>Tài Liệu Về xe</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /counter -->
+
+                        <div class="col-md-3">
+                            <div class="counter-icon-number">
+                                <div class="counter-icon">
+                                    <i class="text-gradiant flaticon-favorites-button"></i>
+                                </div>
+                                <div class="counter-number">
+                                    <span class="counter-count bold-font">15</span><span>.000+</span>
+                                    <p>Đánh Giá</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /counter -->
+
+                        <div class="col-md-3">
+                            <div class="counter-icon-number">
+                                <div class="counter-icon">
+                                    <i class="text-gradiant flaticon-group"></i>
+                                </div>
+                                <div class="counter-number">
+                                    <span class="counter-count bold-font">7</span><span>.500+</span>
+                                    <p>Khách Hàng</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /counter -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of Search Courses
+        ============================================= -->
+    <!-- Start popular course
+        ============================================= -->
+    <section id="popular-course" class="popular-course-section popular-three">
+        <div class="container">
+            <div class="section-title mb20 headline text-left">
+                <span class="subtitle text-uppercase">Hãy Trang Bị Kiến Thức Khi Lái Xe</span>
+                <h2><span>Phổ Biến </span>Đang Thịnh Hành</h2>
+            </div>
+            <div id="course-slide-item" class="course-slide">
+                @{ foreach (var d in car)
+                    {
+                        <div class="course-item-pic-text">
+                            <div class="course-pic relative-position mb25">
+                                <img src="@d.Images" alt="">
+                                <div class="course-details-btn">
+                                    <a href="/home/details/@d.ID">Chi Tiết <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="course-item-text">
+                                <div class="course-meta">
+                                    <span class="course-category bold-font"><a href="#">Chuyên Dạy Lái Xe</a></span>
+                                    <span class="course-author bold-font"><a href="#">Liên Hệ Ngay</a></span>
+                                    <div class="course-rate ul-li">
+                                        <ul>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="course-title mt10 headline pb45 relative-position">
+                                    <h3><a href="/Home/Details/@d.ID">@d.Name</a> <span class="trend-badge text-uppercase bold-font"><i class="fas fa-bolt"></i> Thịnh Hành</span></h3>
+                                </div>
+                                <div class="course-viewer ul-li">
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-user"></i> 1.220</a></li>
+                                        <li><a href="#"><i class="fas fa-comment-dots"></i> 1.015</a></li>
+                                        <li><a href="#">125k</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+            </div>
+        </div>
+    </section>
+    <!-- End popular course
+        ============================================= -->
+    <!-- Start why choose section
+        ============================================= -->
+    <section id="why-choose" class="why-choose-section version-four backgroud-style">
+        <div class="container">
+            <div class="section-title mb20 headline text-center">
+                <span class="subtitle text-uppercase">Điểm Tin</span>
+                <h2> Khai giảng <span> Các Khóa Học.</span></h2>
+            </div>
+            <div class="extra-features-content">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="extra-left">
+                            <div class="extra-left-content">
+                                <div class="extra-icon-text text-left">
+                                    <div class="features-icon gradient-bg text-center">
+                                        <i class="flaticon-maths-class-materials-cross-of-a-pencil-and-a-ruler"></i>
+                                        <div class="feat-tag">
+                                            <span>01</span>
+                                        </div>
+                                    </div>
+                                    <div class="features-text">
+                                        <div class="features-text-title">
+                                            <h3>Tổ Chức Phần Thưởng Cho Khách Hàng Thân Thiết.</h3>
+                                        </div>
+                                        @*<div class="features-text-dec">
+                                            <span>Lorem ipsum dolor sit amet consectuerer adipiscing elit set diam non nibh euismod tincidun laoreet.</span>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // extra-left-content -->
+
+                            <div class="extra-left-content">
+                                <div class="extra-icon-text">
+                                    <div class="features-icon gradient-bg text-center">
+                                        <i class=" flaticon-clipboard-with-pencil"></i>
+                                        <div class="feat-tag">
+                                            <span>02</span>
+                                        </div>
+                                    </div>
+                                    <div class="features-text pt25">
+                                        <div class="features-text-title">
+                                            <h3>Tổ Chứ Hội Nghị Về Chức Năng Mới.</h3>
+                                        </div>
+                                        @*<div class="features-text-dec">
+                                            <span>Lorem ipsum dolor sit amet consectuerer adipiscing elit set diam non nibh euismod tincidun laoreet.</span>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // extra-left-content -->
+
+                            <div class="extra-left-content">
+                                <div class="extra-icon-text">
+                                    <div class="features-icon gradient-bg text-center">
+                                        <i class="flaticon-list"></i>
+                                        <div class="feat-tag">
+                                            <span>03</span>
+                                        </div>
+                                    </div>
+                                    <div class="features-text pt25">
+                                        <div class="features-text-title">
+                                            <h3>Tổ Chứ Khóa Học Lái Xe Ô Tô Bằng C</h3>
+                                        </div>
+                                        @*<div class="features-text-dec">
+                                            <span>Lorem ipsum dolor sit amet consectuerer adipiscing elit set diam non nibh euismod tincidun laoreet.</span>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // extra-left-content -->
+                        </div><!-- /extra-left -->
+                    </div>
+                    <!-- /col-sm-3 -->
+
+                    <div class="col-sm-4">
+                        <div class="extra-pic text-center">
+                            <img src="/assets/img/banner/wc-2.png" alt="img">
+                        </div>
+                    </div>
+                    <!-- /col-sm-6 -->
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="extra-right">
+                            <div class="extra-left-content">
+                                <div class="extra-icon-text text-right">
+                                    <div class="features-icon gradient-bg text-center">
+                                        <i class="flaticon-ruler-and-pencil"></i>
+                                        <div class="feat-tag">
+                                            <span>04</span>
+                                        </div>
+                                    </div>
+                                    <div class="features-text pt25">
+                                        <div class="features-text-title text-right pb10">
+                                            <h3>Sự Kiện Lái Thử Sản Phẩm Mới.</h3>
+                                        </div>
+                                        @*<div class="features-text-dec text-right">
+                                            <span>Lorem ipsum dolor sit amet consectuerer adipiscing elit set diam non nibh euismod tincidun laoreet.</span>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // extra-left-content -->
+
+                            <div class="extra-left-content">
+                                <div class="extra-icon-text text-right">
+                                    <div class="features-icon gradient-bg text-center">
+                                        <i class="flaticon-clipboards"></i>
+                                        <div class="feat-tag">
+                                            <span>05</span>
+                                        </div>
+                                    </div>
+                                    <div class="features-text pt25">
+                                        <div class="features-text-title text-right pb10">
+                                            <h3>Sự Kiện Họp Báo Cho Cổ Đông.</h3>
+                                        </div>
+                                        @*<div class="features-text-dec text-right">
+                                            <span>Lorem ipsum dolor sit amet consectuerer adipiscing elit set diam non nibh euismod tincidun laoreet.</span>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // extra-left-content -->
+
+                            <div class="extra-left-content">
+                                <div class="extra-icon-text text-right">
+                                    <div class="features-icon gradient-bg text-center">
+                                        <i class="flaticon-pie-chart"></i>
+                                        <div class="feat-tag">
+                                            <span>06</span>
+                                        </div>
+                                    </div>
+                                    <div class="features-text pt25">
+                                        <div class="features-text-title text-right pb10">
+                                            <h3>Lẽ Ra Mắt Xê.</h3>
+                                        </div>
+                                        @*<div class="features-text-dec text-right">
+                                            <span>Lorem ipsum dolor sit amet consectuerer adipiscing elit set diam non nibh euismod tincidun laoreet.</span>
+                                        </div>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- // extra-left-content -->
+                        </div><!-- /extra-left -->
+                    </div>
+                    <!-- /col-sm-3 -->
+                </div><!-- /row -->
+            </div>
+        </div>
+    </section>
+    <!-- End why choose section
+        ============================================= -->
+    <!-- Start of about us section
+        ============================================= -->
+    <section id="about-us" class="about-us-section home-secound home-third">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="about-resigter-form backgroud-style relative-position">
+                        <div class="register-content">
+                            <div class="register-fomr-title text-center">
+                                <h3 class="bold-font"><span>Cập Nhật</span> Tin Tức Mới.</h3>
+                                <p>Hơn 200 phần quà cho các khách hàng</p>
+                            </div>
+                            <div class="register-form-area">
+
+                                <form class="contact_form" action="~/home/SendMail" method="POST" enctype="multipart/form-data">
+                                    <div class="contact-info">
+                                        <input class="name" name="name" type="text" placeholder="Họ Và Tên.">
+                                    </div>
+                                    <div class="contact-info">
+                                        <input class="number" name="number" type="number" placeholder="Số Điện Thoại" required>
+                                    </div>
+                                    <div class="contact-info">
+                                        <input class="email"  name="email" type="email" placeholder="Email Của Bạn" required>
+                                    </div>
+                                    <div class="contact-info">
+                                        <input type="text" id="datepicker" placeholder="Ngày Lái Thử.">
+                                    </div>
+                                    <textarea class="textarea" placeholder="Các Yêu Cầu..." name="messeger" rows="3" id="comment" required></textarea>
+                                    <div class="nws-button text-uppercase text-center white text-capitalize">
+                                        <button type="submit" value="Submi">Gửi </button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-mockup">
+                        <img src="/assets/img/about/abt.jpg" alt="">
+                    </div>
+                </div>
+                <!-- /form -->
+
+                <div class="col-md-7">
+                    <div class="about-us-text">
+                        <div class="section-title relative-position mb20 headline text-left">
+                            <span class="subtitle ml42 text-uppercase">Sắp Xếp Về Chúng Tôi</span>
+                            <h2>
+                                Chúng Tôi <span> Cam Kết Uy Tính</span>
+                                Làm Việc Nhanh Chóng.
+                            </h2>
+                            <p>Chúng Tôi Coi Trọng Ý Thức Lái Xe Và Các Kỹ Năng Xử Lý Khi Tham Gia Giao Thông.</p>
+                        </div>
+                        <div class="about-content-text">
+                            <div class="about-list mb65 ul-li-block">
+                                <ul>
+                                    <li>Chuyên nghiệp và có kinh nghiệm</li>
+                                    <li>Chúng tôi kết nối các cửa hàng tốt nhất từ khắp nơi trên mọi miền</li>
+                                    <li>Sứ mệnh của chúng tôi là Tăng cường phát triển các tính năng phù hợp với khách hàng</li>
+                                </ul>
+                            </div>
+                            <div class="about-btn">
+                                <div class="genius-btn gradient-bg text-center text-uppercase ul-li-block bold-font">
+                                    <a href="#">Về Chúng Tôi <i class="fas fa-caret-right"></i></a>
+                                </div>
+                                <div class="genius-btn gradient-bg text-center text-uppercase ul-li-block bold-font">
+                                    <a href="#contact-form">Liên Hệ Ngay <i class="fas fa-caret-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of about us section
+        ============================================= -->
+  
+    <!-- Start latest section
+        ============================================= -->
+    <section id="latest-area" class="latest-area-section">
+        <div class="container">
+            <div class="row">
+
+                <!-- /events -->
+                <div class="col-lg-5">
+                    <div class="latest-area-content">
+                        <div class="section-title-2 mb65 headline text-left">
+                            <h2>Tin Tức <span>Mới Nhất.</span></h2>
+                        </div>
+                        <div class="latest-events">
+                            <div class="latest-event-item">
+                                <div class="events-date relative-position text-center">
+                                    <div class="gradient-bdr"></div>
+                                    <span class="event-date bold-font">1</span>
+                                </div>
+                                <div class="event-text">
+                                    <h3 class="latest-title bold-font"><a href="#">Khóa Học Lái Xe Tải Hạng C ( xe tải trên 3,5 tấn ).</a></h3>
+                                    <div class="course-meta">
+                                        <span class="course-category"><a href="/home/contact">TƯ Vấn Viên</a></span>
+                                        <span class="course-author"><a href="/home/contact">Liên Hệ Ngay</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="latest-events">
+                            <div class="latest-event-item">
+                                <div class="events-date  relative-position text-center">
+                                    <div class="gradient-bdr"></div>
+                                    <span class="event-date bold-font">2</span>
+                                </div>
+                                <div class="event-text">
+                                    <h3 class="latest-title bold-font"><a href="#">Hội nghị ra mắt cho sản phẩm mới.</a></h3>
+                                    <div class="course-meta">
+                                        <span class="course-category"><a href="/home/contact">Tư Vấn Viên</a></span>
+                                        <span class="course-author"><a href="/home/contact">Liên Hệ Ngay</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="latest-events">
+                            <div class="latest-event-item">
+                                <div class="events-date  relative-position text-center">
+                                    <div class="gradient-bdr"></div>
+                                    <span class="event-date bold-font">3</span>
+                                </div>
+                                <div class="event-text">
+                                    <h3 class="latest-title bold-font"><a href="#">Phần thưởng cho khách hàng thân thiện.</a></h3>
+                                    <div class="course-meta">
+                                        <span class="course-category"><a href="/home/contact">Tư Vấn Viên</a></span>
+                                        <span class="course-author"><a href="/home/contact">Liên Hệ Ngay</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="view-all-btn bold-font">
+                            <a href="#">Xem Lịch <i class="fas fa-calendar-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /latest-news -->
+                <div class="col-lg-7">
+                    <div class="latest-area-content">
+                        <div class="section-title-2 mb65 headline text-left">
+                            <h2>Sản PHẩm <span>Của Của Hàng.</span></h2>
+                        </div>
+                        @{int count = 0;
+                          foreach (var d in car)
+                          {
+                             if (count < 2)
+                             {
+                                 <div class="row" style="padding:20px">
+                                    <div class="col-lg-4">
+                                        <img class="img-fluid card-img-top" src="@d.Images" alt="Card image cap">
+                                    </div>
+                                 <div class="col-lg-8">
+                                    <h5 class="card-title" style="color:deepskyblue"><a href="/home/details/@d.ID">@d.Name</a></h5>
+                                    <p class="card-text"><span style = "color:red" > Ngày Học :</span> <a href ="#contact-form" > Liên Hệ Ngay</a></p>
+                                     <p class="card-text">@d.Content</p>
+                                  </div>
+                                 </div>
+                             }
+                                count++;
+                            }
+                        }
+
+                        <div class="latest-news-posts">
+
+                            <div class="latest-news-posts">
+
+                            </div>
+
+                            <div class="view-all-btn bold-font">
+                                <a href="#">Xem Nhiều Tin Tức <i class="fas fa-chevron-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-md-4">
+            <div class="latest-area-content">
+                <div class="section-title-2 mb65 headline text-left">
+                    <h2>Latest <span>Video.</span></h2>
+                </div>
+                <div class="latest-video-poster relative-position mb20">
+                    <img src="/assets/img/banner/v-1.jpg" alt="">
+                    <div class="video-play-btn text-center gradient-bg">
+                        <a class="popup-with-zoom-anim" href="https://www.youtube.com/watch?v=-g4TnixUdSc"><i class="fas fa-play"></i></a>
+                    </div>
+                </div>
+                <h3 class="latest-title bold-font"><a href="#">Learning IOS Apps in Amsterdam.</a></h3>
+                <p class="mb25">Lorem ipsum dolor sit amet, consectetuer delacosta adipiscing elit, sed diam nonummy.</p>
+                <div class="view-all-btn bold-font">
+                    <a href="#">View All Videos <i class="fas fa-chevron-circle-right"></i></a>
+                </div>
+            </div>
+        </div>*@
+                <!-- /. -->
+            </div>
+        </div>
+    </section>
+
+    <section id="best-product" class="faq-section faq-secound-home-version backgroud-style">
+        <div class="container">
+            <div class="section-title mb45 headline text-center">
+                <span class="subtitle text-uppercase">Tìm Kiếm Tài Liệu</span>
+                <h2><span>Theo Hãng Xe.</span></h2>
+            </div>
+            <div class="best-course-area mb45">
+                <div class="row">
+                    @{ int dem = 0;
+                        foreach (var d in carcate)
+                        {
+                            if (dem < 4)
+                            {
+                                <div class="col-md-3">
+                                    <div class="best-course-pic-text relative-position">
+                                        <div class="best-course-pic relative-position">
+                                            <img src="~/ImagesCar/logo/@d.Images" alt="">
+                                            <div class="trend-badge-2 text-center text-uppercase">
+                                                <i class="fas fa-bolt"></i>
+                                                <span>Thịnh Hành</span>
+                                            </div>
+                                            <div class="course-price text-center gradient-bg">
+                                                <span>Đánh Giá</span>
+                                            </div>
+                                            <div class="course-rate ul-li">
+                                                <ul>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                    <li><i class="fas fa-star"></i></li>
+                                                </ul>
+                                            </div>
+                                            <div class="course-details-btn">
+                                                <a href="/home/document">Chi Tiết <i class="fas fa-arrow-right"></i></a>
+                                            </div>
+                                            <div class="blakish-overlay"></div>
+                                        </div>
+                                        <div class="best-course-text">
+                                            <div class="course-title mb20 headline relative-position">
+                                                <h3><a href="#">@d.NameCate</a></h3>
+                                            </div>
+                                            <div class="course-meta">
+                                                <span class="course-category"><a href="#">Chuyên Dạy Lái Xe</a></span>
+                                                <span class="course-author"><a href="#">Liên Hệ Ngay</a></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            dem++;
+                        }
+
+                    }
+                </div>
+            </div>
+
+        </div>
+    </section>
+   
+
+    <section id="sponsor" class="sponsor-section">
+        <div class="container">
+            <div class="section-title-2 mb65 headline text-left">
+                <h2>Hãng Xe <span>Phổ Biến.</span></h2>
+            </div>
+            <div class="sponsor-item sponsor-1">
+                <div class="sponsor-pic text-center">
+                    <img src="~/ImagesCar/logo/2.jpg" alt="">
+                </div>
+                <div class="sponsor-pic text-center">
+                    <img src="~/ImagesCar/logo/2.jpg" alt="">
+                </div>
+                <div class="sponsor-pic text-center">
+                    <img src="~/ImagesCar/logo/2.jpg" alt="">
+                </div>
+                <div class="sponsor-pic text-center">
+                    <img src="~/ImagesCar/logo/2.jpg" alt="">
+                </div>
+                <div class="sponsor-pic text-center">
+                    <img src="~/ImagesCar/logo/2.jpg" alt="">
+                </div>
+                <div class="sponsor-pic text-center">
+                    <img src="~/ImagesCar/logo/2.jpg" alt="">
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-form"  class="contact-form-area_3">
+        <div class="container">
+            <div class="section-title mb45 headline text-center">
+                <span class="subtitle text-uppercase">Đăng Kí Ngay</span>
+                <h2>Để Nhận Tư Vấn <span> Miễn Phí.</span></h2>
+            </div>
+
+            <div class="contact_third_form">
+                <form class="contact_form" action="~/home/SendMail" method="POST" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="contact-info">
+                                <input class="name" name="name" type="text" placeholder="Họ Và Tên." required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-info">
+                                <input class="email" name="email" type="email" placeholder="Email Của Bạn" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-info">
+                                <input class="number" name="number" type="number" placeholder="Số Điện Thoại" required>
+                            </div>
+                        </div>
+                    </div>
+                    <textarea class="textarea" placeholder="Các Yêu Cầu..." name="messeger" rows="3" id="comment" required></textarea>
+                    <div class="nws-button text-center  gradient-bg text-uppercase">
+                        <button type="submit" value="Submit">Gửi <i class="fas fa-caret-right"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html> 
+

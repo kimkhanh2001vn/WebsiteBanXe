@@ -1,0 +1,138 @@
+﻿@using WebLaiXe.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Car>
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/assets/css/Product.css" rel="stylesheet" />
+
+<html>
+<body>
+
+    <section id="breadcrumb" class="breadcrumb-section relative-position backgroud-style">
+        <div class="blakish-overlay"></div>
+        <div class="container">
+            <div class="page-breadcrumb-content text-center">
+                <div class="page-breadcrumb-title">
+                    <h2 class="breadcrumb-head black bold">Tất Cả <span>Sản Phẩm </span></h2>
+                </div>
+                <div class="page-breadcrumb-item ul-li">
+                    <ul class="breadcrumb text-uppercase black">
+                        <li class="breadcrumb-item"><a href="/home/index">Trang Chủ</a></li>
+                        <li class="breadcrumb-item active">Sản Phẩm</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="title">
+            <h1>Mục Lục Sản Phẩm</h1>
+        </div>
+        <hr />
+        <div>
+            <div class="card search-form">
+                <div class="card-body p-0">
+                        @using (Html.BeginForm("Search", "home", FormMethod.Get))
+                        {
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row no-gutters">
+                                        <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                            <select class="form-control" id="exampleFormControlSelect1">
+                                                <option>Location</option>
+                                                <option>London</option>
+                                                <option>Boston</option>
+                                                <option>Mumbai</option>
+                                                <option>New York</option>
+                                                <option>Toronto</option>
+                                                <option>Paris</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-8 col-md-6 col-sm-12 p-0">
+                                            <input type="text" placeholder="Search..." class="form-control" id="search" name="searchString">
+                                        </div>
+                                        <div class="col-lg-1 col-md-3 col-sm-12 p-0">
+                                            <button type="submit" class="btn btn-base">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                </div>
+            </div>
+        </div>
+            
+        <div class="row">
+            @{foreach (var sanpham in Model)
+                {
+                    <div class="col-xs-12 col-md-6 bootstrap snippets bootdeys">
+                        <!-- product -->
+                        <div class="product-content product-wrap clearfix">
+                            <div class="row">
+                                <div class="col-md-5 col-sm-12 col-xs-12">
+                                    <div class="product-image">
+                                        <img src="@sanpham.Images" alt="194x228" class="img-responsive">
+                                        <span class="tag2 hot">
+                                            HOT
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 col-sm-12 col-xs-12">
+                                    <div class="product-deatil">
+                                        <h5 class="name">
+                                            <a href="/home/details/@sanpham.ID">
+                                                @sanpham.Name
+                                            </a>
+                                        </h5>
+                                        <p class="price-container">
+                                            @Html.FormatValue(sanpham.Price, "{0:#,##0}") VNĐ
+                                        </p>
+                                        <span class="tag1"></span>
+                                    </div>
+                                    <div class="description">
+                                        <p>@sanpham.Content </p>
+                                    </div>
+                                    <div class="product-info smart-form">
+                                        <div class="row">
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <a href="@Url.Action("AddItem","Cart",new { cartId = sanpham.ID, quantity = 1, }) " class="btn btn-success">Add to cart</a>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 col-xs-6">
+                                                <div class="rating">
+                                                    <label for="stars-rating-5"><i class="fa fa-star"></i></label>
+                                                    <label for="stars-rating-4"><i class="fa fa-star"></i></label>
+                                                    <label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
+                                                    <label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
+                                                    <label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end product -->
+                    </div>
+                }
+            }
+
+        </div>
+        Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) of @Model.PageCount
+
+        <div class="menutrang">
+            @Html.PagedListPager(Model, page => Url.Action("Product", new { page = page }))
+        </div>
+        <style>
+            .menutrang {
+                display: inline;
+                text-align: center;
+            }
+        </style>
+    </div>
+</body>
+</html>
+

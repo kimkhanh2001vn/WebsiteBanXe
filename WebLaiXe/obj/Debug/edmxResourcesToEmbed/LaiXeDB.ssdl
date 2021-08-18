@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LaiXeDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChiTietPhuKien">
+    <Key>
+      <PropertyRef Name="TenPhukien" />
+    </Key>
+    <Property Name="TenPhukien" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AnhPhuKien" Type="varchar" MaxLength="50" />
+    <Property Name="MoTa1" Type="ntext" />
+    <Property Name="Mota2" Type="ntext" />
+    <Property Name="MaPhuKien" Type="int" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="MaClass" />
+    </Key>
+    <Property Name="MaClass" Type="int" Nullable="false" />
+    <Property Name="TenClass" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="HoTen" />
+    </Key>
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DienThoai" Type="int" />
+    <Property Name="DiaChi" Type="ntext" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="LoaiXe" Type="varchar" MaxLength="30" />
+    <Property Name="TenXe" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PhuKien">
+    <Key>
+      <PropertyRef Name="MaPhuKien" />
+    </Key>
+    <Property Name="MaPhuKien" Type="int" Nullable="false" />
+    <Property Name="Phukien" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Xe">
+    <Key>
+      <PropertyRef Name="LoaiXe" />
+      <PropertyRef Name="TenXe" />
+    </Key>
+    <Property Name="MaXe" Type="int" />
+    <Property Name="LoaiXe" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="TenXe" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="GiaXe" Type="money" />
+    <Property Name="AnhBia" Type="varchar" MaxLength="50" />
+    <Property Name="MoTa" Type="ntext" />
+    <Property Name="NgayCapNhat" Type="smalldatetime" />
+    <Property Name="MaClass" Type="int" />
+  </EntityType>
+  <Association Name="FRK_ChiTietPhuKien_PhuKien">
+    <End Role="PhuKien" Type="Self.PhuKien" Multiplicity="0..1" />
+    <End Role="ChiTietPhuKien" Type="Self.ChiTietPhuKien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhuKien">
+        <PropertyRef Name="MaPhuKien" />
+      </Principal>
+      <Dependent Role="ChiTietPhuKien">
+        <PropertyRef Name="MaPhuKien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_KhachHang_Xe">
+    <End Role="Xe" Type="Self.Xe" Multiplicity="0..1" />
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Xe">
+        <PropertyRef Name="LoaiXe" />
+        <PropertyRef Name="TenXe" />
+      </Principal>
+      <Dependent Role="KhachHang">
+        <PropertyRef Name="LoaiXe" />
+        <PropertyRef Name="TenXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_Xe_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+    <End Role="Xe" Type="Self.Xe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="MaClass" />
+      </Principal>
+      <Dependent Role="Xe">
+        <PropertyRef Name="MaClass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LaiXeDBStoreContainer">
+    <EntitySet Name="ChiTietPhuKien" EntityType="Self.ChiTietPhuKien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhuKien" EntityType="Self.PhuKien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Xe" EntityType="Self.Xe" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FRK_ChiTietPhuKien_PhuKien" Association="Self.FRK_ChiTietPhuKien_PhuKien">
+      <End Role="PhuKien" EntitySet="PhuKien" />
+      <End Role="ChiTietPhuKien" EntitySet="ChiTietPhuKien" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_KhachHang_Xe" Association="Self.FRK_KhachHang_Xe">
+      <End Role="Xe" EntitySet="Xe" />
+      <End Role="KhachHang" EntitySet="KhachHang" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_Xe_Class" Association="Self.FRK_Xe_Class">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Xe" EntitySet="Xe" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

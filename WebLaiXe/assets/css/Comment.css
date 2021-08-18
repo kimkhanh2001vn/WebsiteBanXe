@@ -1,0 +1,36 @@
+﻿
+.accordion .card {
+    width: 100% !important
+}
+
+#collapseDongCo button {
+    width: 330px;
+}
+#collapseDongCo .row .col-lg-4 .collapse  #list-tab{
+    width:333px
+}
+#collapseDongCo .row .col-lg-4 .collapse #list-tab a {
+    margin-bottom: 15px
+}
+
+#accordionExample .card #headingOne {
+    margin-bottom: 20px
+}
+.comment-wrapper .panel-body {
+    max-height: 650px;
+    overflow: auto;
+}
+
+.comment-wrapper .media-list .media img {
+    width: 64px;
+    height: 64px;
+    border: 2px solid #e5e7e8;
+}
+
+.comment-wrapper .media-list .media {
+    border-bottom: 1px dashed #efefef;
+    margin-bottom: 25px;
+}
+.media-list .media .media-body {
+    margin-left: 20px
+}

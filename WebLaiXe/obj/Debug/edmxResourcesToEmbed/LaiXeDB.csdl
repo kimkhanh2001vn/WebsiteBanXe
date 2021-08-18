@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LaiXeDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChiTietPhuKien">
+    <Key>
+      <PropertyRef Name="TenPhukien" />
+    </Key>
+    <Property Name="TenPhukien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AnhPhuKien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MoTa1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Mota2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MaPhuKien" Type="Int32" />
+    <NavigationProperty Name="PhuKien" Relationship="Self.FRK_ChiTietPhuKien_PhuKien" FromRole="ChiTietPhuKien" ToRole="PhuKien" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="MaClass" />
+    </Key>
+    <Property Name="MaClass" Type="Int32" Nullable="false" />
+    <Property Name="TenClass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Xes" Relationship="Self.FRK_Xe_Class" FromRole="Class" ToRole="Xe" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="HoTen" />
+    </Key>
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DienThoai" Type="Int32" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LoaiXe" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TenXe" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Xe" Relationship="Self.FRK_KhachHang_Xe" FromRole="KhachHang" ToRole="Xe" />
+  </EntityType>
+  <EntityType Name="PhuKien">
+    <Key>
+      <PropertyRef Name="MaPhuKien" />
+    </Key>
+    <Property Name="MaPhuKien" Type="Int32" Nullable="false" />
+    <Property Name="Phukien1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ChiTietPhuKiens" Relationship="Self.FRK_ChiTietPhuKien_PhuKien" FromRole="PhuKien" ToRole="ChiTietPhuKien" />
+  </EntityType>
+  <EntityType Name="Xe">
+    <Key>
+      <PropertyRef Name="LoaiXe" />
+      <PropertyRef Name="TenXe" />
+    </Key>
+    <Property Name="MaXe" Type="Int32" />
+    <Property Name="LoaiXe" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TenXe" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GiaXe" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="AnhBia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayCapNhat" Type="DateTime" Precision="0" />
+    <Property Name="MaClass" Type="Int32" />
+    <NavigationProperty Name="Class" Relationship="Self.FRK_Xe_Class" FromRole="Xe" ToRole="Class" />
+    <NavigationProperty Name="KhachHangs" Relationship="Self.FRK_KhachHang_Xe" FromRole="Xe" ToRole="KhachHang" />
+  </EntityType>
+  <Association Name="FRK_ChiTietPhuKien_PhuKien">
+    <End Role="PhuKien" Type="Self.PhuKien" Multiplicity="0..1" />
+    <End Role="ChiTietPhuKien" Type="Self.ChiTietPhuKien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PhuKien">
+        <PropertyRef Name="MaPhuKien" />
+      </Principal>
+      <Dependent Role="ChiTietPhuKien">
+        <PropertyRef Name="MaPhuKien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_Xe_Class">
+    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+    <End Role="Xe" Type="Self.Xe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="MaClass" />
+      </Principal>
+      <Dependent Role="Xe">
+        <PropertyRef Name="MaClass" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FRK_KhachHang_Xe">
+    <End Role="Xe" Type="Self.Xe" Multiplicity="0..1" />
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Xe">
+        <PropertyRef Name="LoaiXe" />
+        <PropertyRef Name="TenXe" />
+      </Principal>
+      <Dependent Role="KhachHang">
+        <PropertyRef Name="LoaiXe" />
+        <PropertyRef Name="TenXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChiTietPhuKiens" EntityType="Self.ChiTietPhuKien" />
+    <EntitySet Name="Classes" EntityType="Self.Class" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="PhuKiens" EntityType="Self.PhuKien" />
+    <EntitySet Name="Xes" EntityType="Self.Xe" />
+    <AssociationSet Name="FRK_ChiTietPhuKien_PhuKien" Association="Self.FRK_ChiTietPhuKien_PhuKien">
+      <End Role="PhuKien" EntitySet="PhuKiens" />
+      <End Role="ChiTietPhuKien" EntitySet="ChiTietPhuKiens" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_Xe_Class" Association="Self.FRK_Xe_Class">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Xe" EntitySet="Xes" />
+    </AssociationSet>
+    <AssociationSet Name="FRK_KhachHang_Xe" Association="Self.FRK_KhachHang_Xe">
+      <End Role="Xe" EntitySet="Xes" />
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

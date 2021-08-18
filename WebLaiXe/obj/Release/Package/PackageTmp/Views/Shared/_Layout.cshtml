@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+@{ 
+    WebLaiXe.Models.CustomerInfo customer = (WebLaiXe.Models.CustomerInfo)Session["TaiKhoan"];
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/Scripts")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/assets/css")
+    @Scripts.Render("~/assets/js")
+    <link href="~/assets/css/PayMentPg.css" rel="stylesheet" />
+
+
+</head>
+<body>
+    @*<div id="preloader"></div>*@
+
+    <header>
+        <div id="main-menu" class="main-menu-container">
+            <div class="main-menu">
+                <div class="container-fluid">
+                    <div class="navbar-default">
+                        <div class="navbar-header float-left">
+                            <a class="navbar-brand text-uppercase" href="#"><img src="~/assets/img/logo/logo-2.png" alt="logo"></a>
+                        </div><!-- /.navbar-header -->
+
+                        <div class="cart-search float-right ul-li">
+                            <ul>
+                                <li><a href="/cart/index"><i class="fas fa-shopping-bag"></i></a></li>
+                                <li>
+                                    <button type="button" class="toggle-overlay search-btn">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    <div class="search-body">
+                                        <div class="search-form">
+                                            <form action="/home/Search" method="post">
+                                                <input class="search-input" type="search" id="search" name="searchString" placeholder="Search Here">
+                                                <div class="outer-close toggle-overlay">
+                                                    <button type="button" class="search-close">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <nav class="navbar-menu float-right">
+                            <div class="nav-menu ul-li">
+                                <ul>
+                                    <li class="menu-item-has-children ul-li-block">
+                                        <a href="/home/index">Trang Chủ</a>
+                                    </li>
+                                    <li><a href="/home/about">Giới Thiệu</a></li>
+                                    <li><a href="/home/product">Sản Phẩm</a></li>
+                                    <li class="menu-item-has-children ul-li-block">
+                                        <a href="https://www.toyota.com.vn/tin-tuc/tin-tuc-chung">Tin Tức</a>
+                                    </li>
+                                    <li><a href="/home/document">Tài Liệu</a></li>
+                                    <li><a href="/home/contact">Liên Hệ</a></li>
+
+                                    @if (customer == null)
+                                    {
+                                        <li><a href="/home/login">Đăng Nhập</a></li>
+
+                                    }
+                                    else
+                                    {
+                                        <li class="menu-item-has-children ul-li-block">
+                                            <a><span>Tên Tài Khoản : @customer.Name </span></a>
+                                            <ul class="sub-menu">
+                                                <li><a href="/profile/index">Thông Tin Cá Nhân</a></li>
+                                                <li>@Html.ActionLink("Thoát", "Logout", "Home")</li>
+                                            </ul>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <section id="footer-area" class="footer-area-section">
+            <div class="container">
+                <div class="footer-content pb10">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="footer-widget">
+                                <div class="footer-logo mb35">
+                                    <img src="/assets/img/logo/f-logo.png" alt="">
+                                </div>
+                                <div class="footer-about-text">
+                                    <p>Trụ sở chính :.</p>
+                                    <p>Thời Gian Làm Việc : 8h - 21h. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="footer-widget">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- /footer-widget-content -->
+                    <div class="footer-social-subscribe mb65">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="footer-social ul-li">
+                                    <h2 class="widget-title">TRUNG TÂM ĐÀO TẠO LÁI XE ĐỒNG TIẾN</h2>
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="subscribe-form">
+                                    <h2 class="widget-title">Theo Dõi Bản Tin</h2>
+
+                                    <div class="subs-form relative-position">
+                                        <form action="#" method="post">
+                                            <input class="course" name="course" type="email" placeholder="Email Của Bạn">
+                                            <div class="nws-button text-center  gradient-bg text-uppercase">
+                                                <button type="submit" value="Submit">Theo Dõi Ngay</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="copy-right-menu">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="copy-right-text">
+                                    <p>@DateTime.Now.Year - Thiết Kế & Phát Triển Bởi Ewons <a href="#" title="Best Premium WordPress, HTML Template Store"</a>. Đã đăng ký Bản quyền</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="copy-right-menu-item float-right ul-li">
+                                    <ul>
+                                        <li><a href="#">Giấy Phép</a></li>
+                                        <li><a href="#">Chính sách bảo mật</a></li>
+                                        <li><a href="#">Hạn của dịch vụ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+    @RenderSection("jsFooter",required:false)
+</body>
+</html>

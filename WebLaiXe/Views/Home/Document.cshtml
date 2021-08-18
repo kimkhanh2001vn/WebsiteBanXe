@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "Document";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var document = (List<Document>)ViewBag.document;
+    var docdtail = ViewBag.docDetail;
+}
+
+<html>
+<head>
+    <link href="~/assets/css/Document.css" rel="stylesheet" />
+</head>
+<body>
+    <section id="breadcrumb" class="breadcrumb-section relative-position backgroud-style">
+        <div class="blakish-overlay"></div>
+        <div class="container">
+            <div class="page-breadcrumb-content text-center">
+                <div class="page-breadcrumb-title">
+                    <h2 class="breadcrumb-head black bold">Quản Lý <span>Tài Liệu </span></h2>
+                </div>
+                <div class="page-breadcrumb-item ul-li">
+                    <ul class="breadcrumb text-uppercase black">
+                        <li class="breadcrumb-item"><a href="/home/index">Trang Chủ</a></li>
+                        <li class="breadcrumb-item active">Tài Liệu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="SecCard">
+        <div class="container mb-5">
+            <div class="text-center mt-5">
+                <h1>Tài Liệu Xe</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="box">
+                        <div class="our-services settings">
+                            <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div>
+                            <h4>Động Cơ</h4>
+                            <p>Vận Hành Êm Ái, Bền Bỉ, Động Cơ Mạnh Mẽ.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box">
+                        <div class="our-services speedup">
+                            <div class="icon"> <img src="https://i.imgur.com/KMbnpFF.png"> </div>
+                            <h4>Tiện Ích</h4>
+                            <p>Ứng Dụng Được Tiến Hợp Vào Điều Khiển Xe Được Linh Hoạt Hơn.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box">
+                        <div class="our-services privacy">
+                            <div class="icon"> <img src="https://i.imgur.com/AgyneKA.png"> </div>
+                            <h4>Cảm Biến</h4>
+                            <p>Các Chức Năng Giúp Cho Chiếc Xe Của Bạn Hiện Đại Hơn. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="box">
+                        <div class="our-services backups">
+                            <div class="icon"> <img src="https://i.imgur.com/vdH9LKi.png"> </div>
+                            <h4>Hãng Tốt Hiện Tại</h4>
+                            <p>Thương Hiệu TOYOTA, MERCEDES, PORCHES, AUDI, BMW.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box">
+                        <div class="our-services ssl">
+                            <div class="icon"> <img src="https://i.imgur.com/v6OnUqu.png"> </div>
+                            <h4>An Toàn</h4>
+                            <p>Luôn Bảo Đảm An Toàn 100% Cho Xe Vận Hành Tốt Nhất.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box">
+                        <div class="our-services database">
+                            <div class="icon"> <img src="https://i.imgur.com/VzjZw9M.png"> </div>
+                            <h4>Công Nghệ Mới</h4>
+                            <p>Nghiên cứu vào từng sản phẩm nhằm mang lại cho khách hàng những chiếc xe an toàn, bền bỉ và tiện nghi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="SecCard">
+        <div class="title-box">
+            <h3 class="text-black">Các Tài Liệu Kĩ Hơn Về Xe</h3>
+            <p>Chọn điều Bạn Muốn Tìm Hiểu Dưới Đây , Các Hãng Xe, Xuất Xứ Thương Hiệu</p>
+            <hr />
+        </div>
+        <div class="row">
+            @foreach (var d in document)
+            {
+                <div class="col-sm-4 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <h4>@d.NameDoc</h4>
+                                <p>@d.ContentDoc</p>
+                            </div>
+                            @foreach (var ch in docdtail)
+                            {
+                                dynamic kh = ch;
+                                var NameDetail = kh.GetType().GetProperty("Name").GetValue(kh, null);
+                                var iddoc = kh.GetType().GetProperty("DocID").GetValue(kh, null);
+                                if (iddoc == d.ID)
+                                {
+                                    <ul class="box-body">
+                                        <li class="body-content"><a href="#">@NameDetail</a></li>
+                                    </ul>
+                                }
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+
+
+        </div>
+    </section>
+</body>
+</html>

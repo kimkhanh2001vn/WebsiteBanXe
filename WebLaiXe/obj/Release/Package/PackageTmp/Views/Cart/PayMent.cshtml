@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "PayMent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+   <script>
+       $(document).ready(function () {
+           $('#btn').click(function () {
+               var name = $('#name').val();
+               var number = $('#number').val();
+               var address = $('#address').val();
+               var email = $('#email').val();
+               $('#form').validate({
+                   rules: {
+                       name: "required",
+                       numberphone: "required",
+                       address: {
+                           required: true,
+                           minlength: 2
+                       },
+                       email: {
+                           required: true,
+                           email: true
+                       }
+                   },
+                   messages: {
+                       name: "Vui lòng nhập họ",
+                       numberphone: "Vui lòng nhập tên",
+                       address: {
+                           required: "Vui lòng nhập địa chỉ",
+                           minlength: "Địa chỉ ngắn vậy, chém gió ah?"
+                       },
+                       email : "Vui lòng nhập email đúng định dạng"
+                   }
+               })
+               if (name != "" || number != "" || address != "" || email != "" || validate == true) {
+                   $('#myModal').on('shown.bs.modal', function () {
+                       $('#myInput').trigger('focus')
+                   })
+               }
+           });
+       });
+   </script>
+</head>
+<body>
+    <section id="breadcrumb" class="breadcrumb-section relative-position backgroud-style">
+        <div class="blakish-overlay"></div>
+        <div class="container">
+            <div class="page-breadcrumb-content text-center">
+                <div class="page-breadcrumb-title">
+                    <h2 class="breadcrumb-head black bold">Quản Lý <span>Đặt Hàng </span></h2>
+                </div>
+                <div class="page-breadcrumb-item ul-li">
+                    <ul class="breadcrumb text-uppercase black">
+                        <li class="breadcrumb-item"><a href="/home/index">Trang Chủ</a></li>
+                        <li class="breadcrumb-item active">Đặt Hàng</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <h5 class="header-title pb-3 mt-0">Thanh Toán</h5>
+                        <div class="row section gruop">
+                            <div class="col-sm-6">
+                                @using (Html.BeginForm("PayMent", "Cart", FormMethod.Post, new { id = "form" }))
+                                {
+                                    <div>
+                                        <label class="form-group-sm">Người Nhận</label>
+                                        <input name="Name" id="name" class="form-control" required type="text" />
+                                    </div>
+                                    <div>
+                                        <label class="form-group-sm">Điện Thoại</label>
+                                        <input name="NumberPhone" id="number" class="form-control" required type="text" />
+                                    </div>
+                                    <div>
+                                        <label class="form-group-sm">Địa Chỉ</label>
+                                        <input name="Address" id="address" class="form-control" required type="text" />
+                                    </div>
+                                    <div>
+                                        <label class="form-group-sm">Email</label>
+                                        <input name="Email" id="email" class="form-control" required type="email" />
+                                    </div>
+                                    <div class="pt-3 border-top text-right"><button href="#" data-toggle="modal" data-target="#myModal" id="btn" class="btn btn-outline-light  text-primary">Đặt Hàng <i class="mdi mdi-arrow-right"></i></button></div>
+                                }
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="fnt" id="mydiv">
+                                    <p id="para">Đặt Hàng Thành Công. Đơn Hàng Bạn Yêu Cầu Đã Được Xác Nhận Chúng Tôi Sẽ Xác Nhận Và Liên Hệ Với Bạn Với Thời Gian Sớm Nhất</p>
+                                    <p id="para">Cảm Ơn Bạn Đã Tin Tưởng Chúng Tôi !!!</p>
+                                </div>
+
+                            </div>
+                            <div class="modal" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Modal body text goes here.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end table-responsive-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

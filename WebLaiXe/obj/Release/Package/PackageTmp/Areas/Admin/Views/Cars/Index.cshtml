@@ -1,0 +1,140 @@
+﻿@using PagedList.Mvc;
+@model PagedList.PagedList<WebLaiXe.Car>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content" data-category="@HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString()">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title"></h3>
+                    <a href="/Admin/Cars/Create" class="btn btn-success btn-lg" style="cursor: pointer">
+                        Thêm mới
+                    </a>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="search-table" class="table table-bordered table-striped">
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Content
+                            </th>
+                            <th>
+                                Place
+                            </th>
+                            <th>
+                                Images
+                            </th>
+                            <th>
+                                Status
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                CreateDate
+                            </th>
+                            <th>
+                                CarCategory
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    <div type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle">Thông Tin Chi Tiết</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    @Html.DisplayFor(modelItem => item.Content)
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Place)
+                                </td>
+                                <td>
+                                    <img src="@Html.DisplayFor(modelItem => item.Images)" class="img-thumbnail" style="cursor:pointer" width="100" 
+                                         onclick="selectImage('Cars/ChangeImage/@item.ID',this.id)" />
+                                </td>
+                                <td class="text-center btn-active" data-id="@item.ID" style="cursor:pointer">
+                                    @if (item.Status == true)
+                                    {
+                                        <span class="label label-success">Actived</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="label label-danger">Locked</span>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.FormatValue(item.Price, "{0:#,##0}") VND
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreateDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CarCategory.NameCate)
+                                </td>
+                                <td>
+                                    <a href="/Admin/cars/Edit/@item.ID" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-edit"></i></a> &nbsp;
+                                    <a href="/Admin/cars/Details/@item.ID" data-toggle="tooltip" data-placement="top" title="Chi tiết"><i class="fa fa-list-alt"></i></a> &nbsp;
+                                    <span class="Delete" data-id="@item.ID" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="Xóa">
+                                        <i class="fa fa-times-circle"></i>
+                                    </span> &nbsp;
+                                </td>
+                            </tr>
+                        }
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) of @Model.PageCount
+
+    <div class="menutrang">
+        @Html.PagedListPager(Model, page => Url.Action("index", new { page = page }))
+    </div>
+    <style>
+        .menutrang {
+            display: inline;
+            text-align: center;
+        }
+    </style>
+</section>
+@section Scripts{
+    <script src="~/assets/client/js/ChangeStatus.js"></script>
+    <script src="~/Areas/Admin/Resources/js/selectImage.js"></script>
+}
+

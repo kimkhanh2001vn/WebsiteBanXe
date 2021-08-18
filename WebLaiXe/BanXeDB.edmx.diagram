@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="329f9fb260e24831b9dfde4add9378cb" Name="Diagram1">
+        <EntityTypeShape EntityType="BanXeDB.Car" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanXeDB.CarCategory" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanXeDB.CarDetail" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanXeDB.Customer" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanXeDB.DocDetail" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanXeDB.Document" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanXeDB.Oder" Width="1.5" PointX="7.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanXeDB.OderDetail" Width="1.5" PointX="10" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanXeDB.Specification" Width="1.5" PointX="7.5" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanXeDB.SpecificationDetail" Width="1.5" PointX="9.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanXeDB.sysdiagram" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanXeDB.User" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="BanXeDB.fk_car_Carcate" ManuallyRouted="false" />
+        <AssociationConnector Association="BanXeDB.FK_CarDetails_Car" ManuallyRouted="false" />
+        <AssociationConnector Association="BanXeDB.fk_doc_carcate" ManuallyRouted="false" />
+        <AssociationConnector Association="BanXeDB.FK_Specification_CarDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="BanXeDB.FK_DocDetails_Document" ManuallyRouted="false" />
+        <AssociationConnector Association="BanXeDB.fk_oderde_oder" ManuallyRouted="false" />
+        <AssociationConnector Association="BanXeDB.FK_SpecificationDetails_Specification" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

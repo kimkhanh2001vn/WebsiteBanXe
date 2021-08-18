@@ -1,0 +1,101 @@
+﻿@model WebLaiXe.Car
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Xem chi tiết
+            </h3>
+        </div>
+        <br />
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Content)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Content)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Place)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Place)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Images)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Images)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Brand)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Brand)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Status)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CarCategory.Name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CarCategory.Name)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+                <p class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.ID })</p>
+                <p class="btn btn-default">@Html.ActionLink("Back to List", "Index")</p>
+            </div>
+        </div>
+        <br /><br />
+    </div>
+</section>

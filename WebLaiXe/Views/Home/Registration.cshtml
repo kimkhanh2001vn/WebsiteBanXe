@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<body>
+    <link href="~/assets/css/RegistrationPg.css" rel="stylesheet" />
+    <!------ Include the above in your HEAD tag ---------->
+
+
+    <section id="breadcrumb" class="breadcrumb-section relative-position backgroud-style">
+        <div class="blakish-overlay"></div>
+        <div class="container">
+            <div class="page-breadcrumb-content text-center">
+                <div class="page-breadcrumb-title">
+                    <h2 class="breadcrumb-head black bold">Hãy Đăng Ký <span>Tài Khoản Cho Riêng Mình </span></h2>
+                </div>
+                <div class="page-breadcrumb-item ul-li">
+                    <ul class="breadcrumb text-uppercase black">
+                        <li class="breadcrumb-item"><a href="/home/login">Đăng Nhập</a></li>
+                        <li class="breadcrumb-item active">Đăng Ký</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container">
+        <br>  <p class="text-center">More bootstrap 4 components on <a href="#"> </a></p>
+        <hr>
+        <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <p class="text-center">Get started with your free account</p>
+                <p>
+                    <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
+                    <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
+                </p>
+                <p class="divider-text">
+                    <span class="bg-light">OR</span>
+                </p>
+                @using (Html.BeginForm("Registration", "home", FormMethod.Post))
+                {
+                    <span class="text-blue">@ViewBag.err1</span>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="username" class="form-control" placeholder="Tên Đăng Nhập" required type="text">
+                    </div>
+
+                    <!-- form-group// -->
+                    <span class="text-blue">@ViewBag.err3</span>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                        </div>
+                        <input name="email" class="form-control" placeholder="Địa Chỉ Email" required type="email">
+                    </div> <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                        </div>
+                        <select class="custom-select" style="max-width: 120px;">
+                            <option selected="">+84</option>
+                        </select>
+                        <input name="numberphone" class="form-control" placeholder="Số Điện Thoại" required type="text">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-address-book"></i> </span>
+                        </div>
+                        <input name="address" class="form-control" placeholder="Địa Chỉ" required type="text">
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="name" class="form-control" placeholder="Họ Và Tên" required type="text">
+                    </div>
+
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input name="password" class="form-control" placeholder="Nhập Mật Khẩu" id="pass" type="password" title="Mật khẩu phải chứa tối thiểu 8 ký tự  1 chữ cái và 1 số" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$">
+                    </div>
+                    <span class="text-blue">@ViewBag.err</span>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" name="passwordAgain" id="passAgain" placeholder="Nhập Lại Mật Khẩu" required type="password">
+                    </div>
+                    <!-- form-group// -->
+                    <span class="text-blue">@ViewBag.err2</span>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                    </div> <!-- form-group// -->
+                    <p class="text-center">Have an account? <a href="">Log In</a> </p>
+                }
+            </article>
+        </div> <!-- card.// -->
+
+    </div>
+    <!--container end.//-->
+</body>
+</html>
+<script>
+    var pass = document.getElementById("pass");
+    var passagain = document.getElementById("passAgain");
+
+    pass.onchange = Againpassword;
+    passagain.onkeyup = Againpassword;
+
+    function Againpassword() {
+        passagain.setCustomValidity("");
+        if (pass.Value != passagain.Value) {
+
+            passagain.setCustomValidity("Mật Khẩu Không Trùng");
+        }
+    }
+</script>
+

@@ -1,0 +1,70 @@
+﻿@model WebLaiXe.OderDetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<section class="content">
+    <!-- COLOR PALETTE -->
+    <div class="box box-default color-palette-box">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                <i class="fa fa-tag"></i> Xem chi tiết
+            </h3>
+        </div>
+        <br />
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.CarID)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CarID)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Quantity)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Total)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Total)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Oder.CusName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Oder.CusName)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-6">
+                <p class="btn btn-default">@Html.ActionLink("Edit", "Edit", new { id = Model.ID })</p>
+                <p class="btn btn-default">@Html.ActionLink("Back to List", "Index")</p>
+            </div>
+        </div>
+        <br />
+        <br />
+    </div>
+</section>

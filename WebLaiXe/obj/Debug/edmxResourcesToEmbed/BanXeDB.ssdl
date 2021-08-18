@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BanXeDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" />
+    <Property Name="Content" Type="nvarchar(max)" />
+    <Property Name="IdCategory" Type="int" />
+    <Property Name="Place" Type="int" />
+    <Property Name="Images" Type="nvarchar" MaxLength="256" />
+    <Property Name="Brand" Type="nvarchar" MaxLength="256" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Price" Type="money" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CarCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameCate" Type="nvarchar" MaxLength="256" />
+    <Property Name="Images" Type="nvarchar" MaxLength="256" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CarDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCar" Type="int" />
+    <Property Name="IdCarCate" Type="int" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Content" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="Password" Type="nvarchar" MaxLength="256" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" />
+    <Property Name="Address" Type="nvarchar" MaxLength="256" />
+    <Property Name="NumberPhone" Type="int" />
+  </EntityType>
+  <EntityType Name="DocDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" />
+    <Property Name="DocID" Type="int" />
+    <Property Name="Content" Type="nvarchar" MaxLength="256" />
+    <Property Name="Images" Type="nvarchar" MaxLength="256" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameDoc" Type="nvarchar" MaxLength="256" />
+    <Property Name="IdCategory" Type="int" />
+    <Property Name="ContentDoc" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Oder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CusName" Type="nvarchar" MaxLength="256" />
+    <Property Name="CusAddress" Type="nvarchar" MaxLength="256" />
+    <Property Name="CusEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="CusPhoneNumber" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="OderDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" />
+    <Property Name="CarID" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Total" Type="float" />
+  </EntityType>
+  <EntityType Name="Specification">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="SpecificationName" Type="nvarchar" MaxLength="256" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="IDCarDetail" Type="int" />
+  </EntityType>
+  <EntityType Name="SpecificationDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdSpecification" Type="int" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" />
+    <Property Name="Content" Type="nvarchar" MaxLength="256" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" />
+    <Property Name="PassWord" Type="nvarchar" MaxLength="256" />
+    <Property Name="DisplayName" Type="nvarchar" MaxLength="256" />
+    <Property Name="Role" Type="int" />
+    <Property Name="status" Type="bit" />
+  </EntityType>
+  <Association Name="fk_car_Carcate">
+    <End Role="CarCategory" Type="Self.CarCategory" Multiplicity="0..1" />
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarDetails_Car">
+    <End Role="Car" Type="Self.Car" Multiplicity="0..1" />
+    <End Role="CarDetails" Type="Self.CarDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CarDetails">
+        <PropertyRef Name="IdCar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_doc_carcate">
+    <End Role="CarCategory" Type="Self.CarCategory" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocDetails_Document">
+    <End Role="Document" Type="Self.Document" Multiplicity="0..1" />
+    <End Role="DocDetails" Type="Self.DocDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Document">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocDetails">
+        <PropertyRef Name="DocID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_oderde_oder">
+    <End Role="Oder" Type="Self.Oder" Multiplicity="0..1" />
+    <End Role="OderDetails" Type="Self.OderDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OderDetails">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Specification_CarDetails">
+    <End Role="CarDetails" Type="Self.CarDetails" Multiplicity="0..1" />
+    <End Role="Specification" Type="Self.Specification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarDetails">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Specification">
+        <PropertyRef Name="IDCarDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecificationDetails_Specification">
+    <End Role="Specification" Type="Self.Specification" Multiplicity="0..1" />
+    <End Role="SpecificationDetails" Type="Self.SpecificationDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specification">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SpecificationDetails">
+        <PropertyRef Name="IdSpecification" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BanXeDBStoreContainer">
+    <EntitySet Name="Car" EntityType="Self.Car" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CarCategory" EntityType="Self.CarCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CarDetails" EntityType="Self.CarDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocDetails" EntityType="Self.DocDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oder" EntityType="Self.Oder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OderDetails" EntityType="Self.OderDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specification" EntityType="Self.Specification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpecificationDetails" EntityType="Self.SpecificationDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_car_Carcate" Association="Self.fk_car_Carcate">
+      <End Role="CarCategory" EntitySet="CarCategory" />
+      <End Role="Car" EntitySet="Car" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarDetails_Car" Association="Self.FK_CarDetails_Car">
+      <End Role="Car" EntitySet="Car" />
+      <End Role="CarDetails" EntitySet="CarDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_doc_carcate" Association="Self.fk_doc_carcate">
+      <End Role="CarCategory" EntitySet="CarCategory" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocDetails_Document" Association="Self.FK_DocDetails_Document">
+      <End Role="Document" EntitySet="Document" />
+      <End Role="DocDetails" EntitySet="DocDetails" />
+    </AssociationSet>
+    <AssociationSet Name="fk_oderde_oder" Association="Self.fk_oderde_oder">
+      <End Role="Oder" EntitySet="Oder" />
+      <End Role="OderDetails" EntitySet="OderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Specification_CarDetails" Association="Self.FK_Specification_CarDetails">
+      <End Role="CarDetails" EntitySet="CarDetails" />
+      <End Role="Specification" EntitySet="Specification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecificationDetails_Specification" Association="Self.FK_SpecificationDetails_Specification">
+      <End Role="Specification" EntitySet="Specification" />
+      <End Role="SpecificationDetails" EntitySet="SpecificationDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,206 @@
+﻿@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Start of breadcrumb section
+    ============================================= -->
+<section id="breadcrumb" class="breadcrumb-section relative-position backgroud-style">
+    <div class="blakish-overlay"></div>
+    <div class="container">
+        <div class="page-breadcrumb-content text-center">
+            <div class="page-breadcrumb-title">
+                <h2 class="breadcrumb-head black bold">Liên Hệ <span>Chúng Tôi </span></h2>
+            </div>
+            <div class="page-breadcrumb-item ul-li">
+                <ul class="breadcrumb text-uppercase black">
+                    <li class="breadcrumb-item"><a href="/home/index">Trang Chủ</a></li>
+                    <li class="breadcrumb-item active">Liên Hệ</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of breadcrumb section
+    ============================================= -->
+<!-- Start of contact section
+    ============================================= -->
+<section id="contact-page" class="contact-page-section">
+    <div class="container">
+        <div class="section-title mb45 headline text-center">
+            <span class="subtitle text-uppercase">Liên Hệ Với Chúng Tôi Về Điều Bạn Cần</span>
+            <h2>Giữ<span> Liên Lạc.</span></h2>
+        </div>
+        <div class="social-contact">
+            <div class="category-icon-title text-center">
+                <div class="category-icon">
+                    <i class="text-gradiant fab fa-facebook-f"></i>
+                </div>
+                <div class="category-title">
+                    <h4>Facebbok</h4>
+                </div>
+            </div>
+            <div class="category-icon-title text-center">
+                <div class="category-icon">
+                    <i class="text-gradiant fab fa-twitter"></i>
+                </div>
+                <div class="category-title">
+                    <h4>Twitter</h4>
+                </div>
+            </div>
+            <div class="category-icon-title text-center">
+                <div class="category-icon">
+                    <i class="text-gradiant fab fa-google-plus-g"></i>
+                </div>
+                <div class="category-title">
+                    <h4>Google +</h4>
+                </div>
+            </div>
+            <div class="category-icon-title text-center">
+                <div class="category-icon">
+                    <i class="text-gradiant fab fa-behance"></i>
+                </div>
+                <div class="category-title">
+                    <h4>Behance</h4>
+                </div>
+            </div>
+            <div class="category-icon-title text-center">
+                <div class="category-icon">
+                    <i class="text-gradiant fab fa-instagram"></i>
+                </div>
+                <div class="category-title">
+                    <h4>Instagram</h4>
+                </div>
+            </div>
+            <div class="category-icon-title text-center">
+                <div class="category-icon">
+                    <i class="text-gradiant fab fa-dribbble"></i>
+                </div>
+                <div class="category-title">
+                    <h4>Dribble</h4>
+                </div>
+            </div>
+            <div class="category-icon-title text-center">
+                <div class="category-icon">
+                    <i class="text-gradiant fab fa-deviantart"></i>
+                </div>
+                <div class="category-title">
+                    <h4>Devianart</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of contact section
+    ============================================= -->
+<!-- Start of contact area form
+    ============================================= -->
+<section id="contact-form" class="contact-form-area_3 contact-page-version">
+    <div class="container">
+        <div class="section-title mb45 headline text-center">
+            <span class="subtitle text-uppercase">Gửi Điều Thắc Mắc Của Bạn</span>
+            <h2>Đến Với<span> Chúng Tôi </span>Ngay Bên Dưới.</h2>
+        </div>
+
+        <div class="contact_third_form">
+            <form class="contact_form" action="~/home/SendMail" method="POST" name="form" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="contact-info">
+                            <input class="name" name="name" type="text" placeholder="Tên Của Bạn" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-info">
+                            <input class="email" name="email" type="email" placeholder="Email Của Bạn" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="contact-info">
+                            <input class="number" name="number" type="number" placeholder="Số Điện Thoại" required>
+                        </div>
+                    </div>
+                </div>
+                <textarea class="textarea" placeholder="Các Yêu Cầu..." name="messeger" rows="3" id="comment" required></textarea>
+                <div class="nws-button text-center  gradient-bg text-uppercase">
+                    <button type="submit" value="Submit">Gửi Email <i class="fas fa-caret-right"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- End of contact area form
+    ============================================= -->
+<!-- Start of contact area
+    ============================================= -->
+<section id="contact-area" class="contact-area-section backgroud-style">
+    <div class="container">
+        <div class="contact-area-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-left-content">
+                        <div class="section-title  mb45 headline text-left">
+                            <span class="subtitle ml42  text-uppercase">Liên Hệ Chúng Tôi</span>
+                            <h2><span>Lấy Phương Thức Liên Lạc</span></h2>
+                            <p>
+                               Chúng Tôi Luôn Đặt Sự Uy Tính Lên Hàng Đầu Trong Mọi Cuộc Giao Dịch.
+                            </p>
+                        </div>
+
+                        <div class="contact-address">
+                            <div class="contact-address-details">
+                                <div class="address-icon relative-position text-center float-left">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="address-details ul-li-block">
+                                    <ul>
+                                        <li><span>Trụ Sở 1: </span>89c,Nguyễn Thường Hiền,Bình Thạnh, HCM</li>
+                                        <li><span>TRụ Sở 2: </span>Tân Đông Hiệp , Tp Dĩ An , Bình Dương</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="contact-address-details">
+                                <div class="address-icon relative-position text-center float-left">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="address-details ul-li-block">
+                                    <ul>
+                                        <li><span>Liên Lạc 1: </span>(0862) 706 198</li>
+                                        <li><span>Liên Lạc 2: </span>(08+) 4658 6666</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="contact-address-details">
+                                <div class="address-icon relative-position text-center float-left">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="address-details ul-li-block">
+                                    <ul>
+                                        <li><span>Email 1: </span>ngokhanh858@gmail.com</li>
+                                        <li><span>Email 2: </span>lehaiha@gmail.com</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="genius-btn mt60 gradient-bg text-center text-uppercase ul-li-block bold-font">
+                        <a href="#">Liên Hệ Ngay <i class="fas fa-caret-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div id="contact-map" class="contact-map-section">
+                        <div id="google-map">
+                            <div id="googleMaps" class="google-map-container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0023237250084!2d106.6826133155135!3d10.811133261506653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528dd835175f7%3A0xe463aafda3eb53a6!2zODlDIE5ndXnhu4VuIFRoxrDhu6NuZyBIaeG7gW4sIFBoxrDhu51uZyA1LCBCw6xuaCBUaOG6oW5oLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1624498303049!5m2!1svi!2s" width="1000" height="700" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </div><!-- /#google-map-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of contact area
+    ============================================= -->

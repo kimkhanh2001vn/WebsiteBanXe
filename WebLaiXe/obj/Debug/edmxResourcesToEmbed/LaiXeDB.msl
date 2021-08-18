@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LaiXeDBStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="ChiTietPhuKiens">
+      <EntityTypeMapping TypeName="LaiXeDB.ChiTietPhuKien">
+        <MappingFragment StoreEntitySet="ChiTietPhuKien">
+          <ScalarProperty Name="TenPhukien" ColumnName="TenPhukien" />
+          <ScalarProperty Name="AnhPhuKien" ColumnName="AnhPhuKien" />
+          <ScalarProperty Name="MoTa1" ColumnName="MoTa1" />
+          <ScalarProperty Name="Mota2" ColumnName="Mota2" />
+          <ScalarProperty Name="MaPhuKien" ColumnName="MaPhuKien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="LaiXeDB.Class">
+        <MappingFragment StoreEntitySet="Class">
+          <ScalarProperty Name="MaClass" ColumnName="MaClass" />
+          <ScalarProperty Name="TenClass" ColumnName="TenClass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="LaiXeDB.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="LoaiXe" ColumnName="LoaiXe" />
+          <ScalarProperty Name="TenXe" ColumnName="TenXe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhuKiens">
+      <EntityTypeMapping TypeName="LaiXeDB.PhuKien">
+        <MappingFragment StoreEntitySet="PhuKien">
+          <ScalarProperty Name="MaPhuKien" ColumnName="MaPhuKien" />
+          <ScalarProperty Name="Phukien1" ColumnName="Phukien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Xes">
+      <EntityTypeMapping TypeName="LaiXeDB.Xe">
+        <MappingFragment StoreEntitySet="Xe">
+          <ScalarProperty Name="MaXe" ColumnName="MaXe" />
+          <ScalarProperty Name="LoaiXe" ColumnName="LoaiXe" />
+          <ScalarProperty Name="TenXe" ColumnName="TenXe" />
+          <ScalarProperty Name="GiaXe" ColumnName="GiaXe" />
+          <ScalarProperty Name="AnhBia" ColumnName="AnhBia" />
+          <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+          <ScalarProperty Name="NgayCapNhat" ColumnName="NgayCapNhat" />
+          <ScalarProperty Name="MaClass" ColumnName="MaClass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BanXeDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Car">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdCategory" Type="Int32" />
+    <Property Name="Place" Type="Int32" />
+    <Property Name="Images" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CarCategory" Relationship="Self.fk_car_Carcate" FromRole="Car" ToRole="CarCategory" />
+    <NavigationProperty Name="CarDetails" Relationship="Self.FK_CarDetails_Car" FromRole="Car" ToRole="CarDetails" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Car" FromRole="Car" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="CarCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameCate" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Images" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Cars" Relationship="Self.fk_car_Carcate" FromRole="CarCategory" ToRole="Car" />
+    <NavigationProperty Name="Documents" Relationship="Self.fk_doc_carcate" FromRole="CarCategory" ToRole="Document" />
+  </EntityType>
+  <EntityType Name="CarDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCar" Type="Int32" />
+    <Property Name="IdCarCate" Type="Int32" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_CarDetails_Car" FromRole="CarDetails" ToRole="Car" />
+    <NavigationProperty Name="Specifications" Relationship="Self.FK_Specification_CarDetails" FromRole="CarDetails" ToRole="Specification" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Images" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CarID" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Car" Relationship="Self.FK_Comment_Car" FromRole="Comment" ToRole="Car" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK_Comment_Customer" FromRole="Comment" ToRole="Customer" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="NumberPhone" Type="Int32" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Customer" FromRole="Customer" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="IdCategory" Type="Int32" />
+    <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CarCategory" Relationship="Self.fk_doc_carcate" FromRole="Document" ToRole="CarCategory" />
+  </EntityType>
+  <EntityType Name="Oder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CusName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CusAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CusEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="CusPhoneNumber" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <NavigationProperty Name="OderDetails" Relationship="Self.fk_oderde_oder" FromRole="Oder" ToRole="OderDetails" />
+  </EntityType>
+  <EntityType Name="OderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="Int32" />
+    <Property Name="CarID" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Total" Type="Double" />
+    <NavigationProperty Name="Oder" Relationship="Self.fk_oderde_oder" FromRole="OderDetails" ToRole="Oder" />
+  </EntityType>
+  <EntityType Name="Specification">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="SpecificationName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="IDCarDetail" Type="Int32" />
+    <NavigationProperty Name="CarDetail" Relationship="Self.FK_Specification_CarDetails" FromRole="Specification" ToRole="CarDetails" />
+    <NavigationProperty Name="SpecificationDetails" Relationship="Self.FK_SpecificationDetails_Specification" FromRole="Specification" ToRole="SpecificationDetails" />
+  </EntityType>
+  <EntityType Name="SpecificationDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdSpecification" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Boolean" />
+    <NavigationProperty Name="Specification" Relationship="Self.FK_SpecificationDetails_Specification" FromRole="SpecificationDetails" ToRole="Specification" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PassWord" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="Int32" />
+    <Property Name="status" Type="Boolean" />
+  </EntityType>
+  <Association Name="fk_car_Carcate">
+    <End Role="CarCategory" Type="Self.CarCategory" Multiplicity="0..1" />
+    <End Role="Car" Type="Self.Car" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Car">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CarDetails_Car">
+    <End Role="Car" Type="Self.Car" Multiplicity="0..1" />
+    <End Role="CarDetails" Type="Self.CarDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CarDetails">
+        <PropertyRef Name="IdCar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Car">
+    <End Role="Car" Type="Self.Car" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Car">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="CarID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_doc_carcate">
+    <End Role="CarCategory" Type="Self.CarCategory" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarCategory">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Specification_CarDetails">
+    <End Role="CarDetails" Type="Self.CarDetail" Multiplicity="0..1" />
+    <End Role="Specification" Type="Self.Specification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CarDetails">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Specification">
+        <PropertyRef Name="IDCarDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_oderde_oder">
+    <End Role="Oder" Type="Self.Oder" Multiplicity="0..1" />
+    <End Role="OderDetails" Type="Self.OderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OderDetails">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecificationDetails_Specification">
+    <End Role="Specification" Type="Self.Specification" Multiplicity="0..1" />
+    <End Role="SpecificationDetails" Type="Self.SpecificationDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specification">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SpecificationDetails">
+        <PropertyRef Name="IdSpecification" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cars" EntityType="Self.Car" />
+    <EntitySet Name="CarCategories" EntityType="Self.CarCategory" />
+    <EntitySet Name="CarDetails" EntityType="Self.CarDetail" />
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="Documents" EntityType="Self.Document" />
+    <EntitySet Name="Oders" EntityType="Self.Oder" />
+    <EntitySet Name="OderDetails" EntityType="Self.OderDetail" />
+    <EntitySet Name="Specifications" EntityType="Self.Specification" />
+    <EntitySet Name="SpecificationDetails" EntityType="Self.SpecificationDetail" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="fk_car_Carcate" Association="Self.fk_car_Carcate">
+      <End Role="CarCategory" EntitySet="CarCategories" />
+      <End Role="Car" EntitySet="Cars" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CarDetails_Car" Association="Self.FK_CarDetails_Car">
+      <End Role="Car" EntitySet="Cars" />
+      <End Role="CarDetails" EntitySet="CarDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Car" Association="Self.FK_Comment_Car">
+      <End Role="Car" EntitySet="Cars" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_doc_carcate" Association="Self.fk_doc_carcate">
+      <End Role="CarCategory" EntitySet="CarCategories" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Specification_CarDetails" Association="Self.FK_Specification_CarDetails">
+      <End Role="CarDetails" EntitySet="CarDetails" />
+      <End Role="Specification" EntitySet="Specifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Customer" Association="Self.FK_Comment_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="fk_oderde_oder" Association="Self.fk_oderde_oder">
+      <End Role="Oder" EntitySet="Oders" />
+      <End Role="OderDetails" EntitySet="OderDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecificationDetails_Specification" Association="Self.FK_SpecificationDetails_Specification">
+      <End Role="Specification" EntitySet="Specifications" />
+      <End Role="SpecificationDetails" EntitySet="SpecificationDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
